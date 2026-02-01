@@ -5,6 +5,7 @@ import Contact from './Pages/Contact'
 import About from './Pages/About'
 import Cart from './Pages/Cart'
 import Header from './component/Header/Header'
+import MenuIcon from './Pages/MenuIcon'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/menuicon" element={<MenuIcon />} />
       </Routes>
     </BrowserRouter>
   )

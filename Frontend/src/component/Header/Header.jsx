@@ -39,9 +39,8 @@ function Header() {
             {/* menu icon */}
         <div
           className="sm:hidden text-4xl mr-5 font-bold text-gray-700 cursor-pointer"
-          onClick={() => setOpenMenu(!openMenu)}
-        >
-          &#8801;
+        ><Link to={"/menuicon"}>&#8801;</Link>
+          
         </div>
           </div>
 
