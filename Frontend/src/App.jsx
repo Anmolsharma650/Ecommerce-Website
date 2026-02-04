@@ -6,11 +6,35 @@ import About from './Pages/About'
 import Cart from './Pages/Cart'
 import Header from './component/Header/Header'
 import MenuIcon from './Pages/MenuIcon'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 function App() {
+  const [location, setlocation] = useState()
+  const [openDropDown,setOpenDropDown]= useState(false)
+  const getLocation = async () => {
+    navigator.geolocation.getCurrentPosition(async pos => {
+      const { latitude, longitude } = pos.coords
+
+      const url = `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+      try {
+        const location = await axios.get(url)
+        const exactLoctaion = location.data.address
+        setlocation(exactLoctaion)
+        setOpenDropDown(false)
+        console.log(exactLoctaion);
+        
+      } catch (error) {
+        console.log(error);
+
+      }
+    })
+
+  }
+  
   return (
     <BrowserRouter>
-      <Header />
+      <Header location={location} getLocation={getLocation} openDropDown={openDropDown} setOpenDropDown={setOpenDropDown} />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -25,4 +49,3 @@ function App() {
 }
 
 export default App
-  
