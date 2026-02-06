@@ -8,6 +8,8 @@ import Header from './component/Header/Header'
 import MenuIcon from './Pages/MenuIcon'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import Footer from './component/Footer'
+
 
 function App() {
   const [location, setlocation] = useState()
@@ -44,6 +46,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/menuicon" element={<MenuIcon />} />
       </Routes>
+     <Footer/>
     </BrowserRouter>
   )
 }
