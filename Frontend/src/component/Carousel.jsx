@@ -1,12 +1,14 @@
-import React, { useContext, useEffect } from "react";
-import { DataContext } from "../Context/DataContext";
+import React, { useEffect } from "react";
+import { getData } from "../Context/DataContext";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import Categry from "../Categry";
+
 
 function Carousel() {
-  const { data, fetchAllProducts } = useContext(DataContext);
+  const { data, fetchAllProducts } = getData();
 
   useEffect(() => {
     if (data.length === 0) {
@@ -21,7 +23,7 @@ function Carousel() {
     >
       <AiOutlineArrowLeft
         size={40}
-        className="bg-red-500 text-white rounded-full p-2 hover:bg-gray-700 transition"
+        className="bg-red-500 hidden sm:block text-white rounded-full p-2 hover:bg-gray-700 transition"
       />
     </div>
   );
@@ -33,7 +35,7 @@ function Carousel() {
     >
       <AiOutlineArrowRight
         size={40}
-        className="bg-red-500 text-white rounded-full p-2 hover:bg-gray-700 transition"
+        className="bg-red-500 hidden sm:block text-white rounded-full p-2 hover:bg-gray-700 transition"
       />
     </div>
   );
@@ -44,9 +46,11 @@ function Carousel() {
     infinite: true,
     autoplay: true,
     autoplaySpeed: 2000,
+    pauseOnHover:false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    accessibility: false,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
@@ -84,6 +88,8 @@ function Carousel() {
           </div>
         ))}
       </Slider>
+      <Categry/>
+    
     </div>
   );
 }
