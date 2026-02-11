@@ -66,7 +66,7 @@ function Carousel() {
             <div className="flex gap-10 justify-center h-[500px] items-center px-4">
               <div className="space-y-6">
                 <h2 className="text-red-500 text-sm font-semibold">
-                  Powering Your World The Best In Electronics
+                 Choose Your Products And Enjoy .
                 </h2>
                 <h1 className="text-3xl font-semibold uppercase line-clamp-2 md:w-[500px] text-white">
                   {item.title}
@@ -80,7 +80,7 @@ function Carousel() {
               </div>
 
               <img
-                src={item.image}
+                src={item.thumbnail}
                 alt={item.title}
                 className="rounded-full w-[300px] hover:scale-105 transition-all shadow-2xl shadow-red-400"
               />

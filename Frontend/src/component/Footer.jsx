@@ -64,9 +64,9 @@ const Footer = () => {
   <button
     type="submit"
     className="
-      bg-red-600 px-5 py-3 text-sm font-semibold text-white
+      bg-red-500 px-5 py-3 text-sm font-semibold text-white
       transition-colors duration-200
-      hover:bg-red-700
+      hover:bg-red-500
       focus:outline-none focus:ring-2 focus:ring-red-500
     "
   >

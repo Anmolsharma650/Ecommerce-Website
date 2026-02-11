@@ -20,9 +20,9 @@ function Header({location,getLocation,openDropDown,setOpenDropDown}) {
         {/*logo */}
         <div className='flex  justify-center gap-5 items-center'>
           <Link to={"/"}>
-            <h1 className='font-bold ml-5 text-3xl'><span className='text-red-400 font-serif'>Z</span>eptro</h1>
+            <h1 className='font-bold ml-5 text-3xl'><span className='text-red-500 font-serif'>Z</span>eptro</h1>
           </Link>  <div className='flex  items-center cursor-pointer gap-2'>
-            <MapPin className=' md:flex hidden text-red-400' />
+            <MapPin className=' md:flex hidden text-red-500' />
             <span className='   md:flex hidden font-semibold'>{location ? <div className='-space-y-2'>
               <p>{location.county}</p>
               <p>{location.state}</p>
@@ -32,17 +32,17 @@ function Header({location,getLocation,openDropDown,setOpenDropDown}) {
           {
             openDropDown ? <div className='`w-[250px]` h-max flex justify-center flex-col shadow-2xl z-50 bg-white fixed top-16 left-60 border-2 p-5 border-gray-100 rounded-md '>
               <h1 className=' font-semibold mb-4 text-xl flex items-center gap-2 justify-between'>  Change Location<span onClick={toggleDropdown}><CgClose/> </span></h1>
-              <button onClick={getLocation} className='  cursor-pointer text-black px-4 py-1 font-semibold rounded-md bg-red-400'>Detect My Location</button>
+              <button onClick={getLocation} className='  cursor-pointer text-black px-4 py-1 font-semibold rounded-md bg-red-500'>Detect My Location</button>
             </div> :null
           }
         </div>
         {/*menu*/}
         <div className='flex text-[20px]  items-center gap-7'>
           <ul className='   hidden  md:flex justify-center gap-7 font-semibold '>
-            <NavLink to={'/'} className={({ isActive }) => `${isActive ? "border-b-2 translate-all border-red-400 " : 'text-black '} cursor-pointer`} ><li>Home</li></NavLink>
-             <NavLink to={'/products'} className={({ isActive }) => `${isActive ? "border-b-2 translate-all border-red-400 " : 'text-black '} cursor-pointer`} ><li>Produts</li></NavLink>
-            <NavLink to={'/about'} className={({ isActive }) => `${isActive ? "border-b-2 translate-all border-red-400 " : 'text-black '} cursor-pointer`} ><li>About</li></NavLink>
-            <NavLink to={'/contact'} className={({ isActive }) => `${isActive ? "border-b-2 translate-all border-red-400 " : 'text-black '} cursor-pointer`} ><li>Contact</li></NavLink>
+            <NavLink to={'/'} className={({ isActive }) => `${isActive ? "border-b-2 translate-all border-red-500 " : 'text-black '} cursor-pointer`} ><li>Home</li></NavLink>
+             <NavLink to={'/products'} className={({ isActive }) => `${isActive ? "border-b-2 translate-all border-red-500 " : 'text-black '} cursor-pointer`} ><li>Produts</li></NavLink>
+            <NavLink to={'/about'} className={({ isActive }) => `${isActive ? "border-b-2 translate-all border-red-500 " : 'text-black '} cursor-pointer`} ><li>About</li></NavLink>
+            <NavLink to={'/contact'} className={({ isActive }) => `${isActive ? "border-b-2 translate-all border-red-500 " : 'text-black '} cursor-pointer`} ><li>Contact</li></NavLink>
           </ul>
           {/*cart icon*/}
 
@@ -54,7 +54,7 @@ function Header({location,getLocation,openDropDown,setOpenDropDown}) {
               <span
                 className="absolute -top-1 -right-1
       w-4 h-4 text-[10px]
-      bg-red-400 text-white rounded-full
+      bg-red-500 text-white rounded-full
       flex items-center justify-center"
               >
                 0
@@ -74,7 +74,7 @@ function Header({location,getLocation,openDropDown,setOpenDropDown}) {
           {/*Button */}
           <div>
             <SignedOut >
-              <SignInButton className="hidden md:flex   justify-center cursor-pointer text-black px-4 py-1 font-semibold rounded-md bg-red-400" />
+              <SignInButton className="hidden md:flex   justify-center cursor-pointer text-black px-4 py-1 font-semibold rounded-md bg-red-500" />
             </SignedOut>
             <SignedIn>
               <div className="hidden md:flex">

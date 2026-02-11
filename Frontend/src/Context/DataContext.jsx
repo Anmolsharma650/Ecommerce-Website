@@ -9,19 +9,32 @@ export const DataProvider = ({ children }) => {
   const fetchAllProducts = useCallback(async () => {
     try {
       const res = await axios.get(
-        "https://fakestoreapi.com/products?limit=150"
+        "https://dummyjson.com/products?limit=100&skip=0"
       )
-      setData(res.data)
+
+      // 🔥 IMPORTANT FIX
+      setData(res.data.products)
+
     } catch (error) {
       console.error(error)
     }
   }, [])
+   
+  const getUniqeCatagory = (data, property) => {
+          let newVal = data?.map((curElem) => {
+              return curElem[property]
+          })
+           newVal =["All",...new Set(newVal)]
+           return newVal
+      }
+      const categoryOnlyData = getUniqeCatagory(data,'category')
+      const brandOnlyData = getUniqeCatagory(data,'brand')
 
   return (
-    <DataContext.Provider value={{ data, fetchAllProducts }}>
+    <DataContext.Provider value={{ data, fetchAllProducts, categoryOnlyData ,brandOnlyData}}>
       {children}
     </DataContext.Provider>
   )
 }
- 
-export const getData =()=>useContext(DataContext)
+
+export const getData = () => useContext(DataContext)

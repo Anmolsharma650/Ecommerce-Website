@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getData } from '../Context/DataContext'
 import Filtersection from '../component/Filtersection'
 import Loading from "../assets/Loading4.webm"
@@ -6,9 +6,22 @@ import ProductCard from '../component/ProductCard'
 
 function Products() {
   const { data, fetchAllProducts } = getData()
+  const [search, setSearch] = useState("")
+  const [Category, setCategory] = useState("All")
+  const [brand, setBrand] = useState("All")
+  const [pricerange, setPriceRange] = useState([0, 5000])
+
   useEffect(() => {
     fetchAllProducts()
   }, [])
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value)
+
+  }
+  const handleBrandChange = (e) => {
+    setBrand(e.target.value)
+  }
 
   return (
     <div>
@@ -16,11 +29,11 @@ function Products() {
         {
           data?.length > 0 ? (
             <div className='flex gap-8'>
-              <Filtersection />
+              <Filtersection search={search} setSearch={setSearch} Category={Category} setCategory={setCategory} brand={brand} setBrand={setBrand} pricerange={pricerange} setPriceRange={setPriceRange} handleBrandChange={handleBrandChange} handleCategoryChange={handleCategoryChange} />
               <div className='grid grid-cols-4 gap-7  mt-10'>
                 {
                   data?.map((product, index) => {
-                    return <ProductCard key={index} product={product}/>
+                    return <ProductCard key={index} product={product} />
 
                   })
                 }

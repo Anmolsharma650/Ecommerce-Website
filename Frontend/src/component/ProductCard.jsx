@@ -8,7 +8,7 @@ function ProductCard({ product }) {
             {/* Fixed Image Height */}
             <div className="w-full h-64 flex items-center justify-center overflow-hidden">
                 <img 
-                    src={product.image} 
+                    src={product.thumbnail} 
                     alt="" 
                     className="h-full object-contain transition-transform duration-300 hover:scale-105"
                 />
