@@ -15,7 +15,7 @@ function Header({location,getLocation,openDropDown,setOpenDropDown}) {
   }
 
   return (
-    <div className=' bg-white shadow-2xl py-3'>
+    <div className=' bg-gray-100 shadow-2xl py-3'>
       <div className='max-w-6xl mx-auto flex  justify-between items-center'>
         {/*logo */}
         <div className='flex  justify-center gap-5 items-center'>
