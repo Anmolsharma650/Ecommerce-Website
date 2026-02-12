@@ -3,7 +3,7 @@ import { IoCartOutline } from 'react-icons/io5'
 
 function ProductCard({ product }) {
     return (
-        <div className='border border-gray-100 rounded-2xl cursor-pointer hover:shadow-2xl transition-all p-3 flex flex-col h-full'>
+        <div className='border border-gray-100 rounded-2xl cursor-pointer hover:shadow-2xl transition-all p-3 flex flex-col h-[400px]'>
             
             {/* Fixed Image Height */}
             <div className="w-full h-64 flex items-center justify-center overflow-hidden">

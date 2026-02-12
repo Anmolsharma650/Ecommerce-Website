@@ -7,6 +7,8 @@ function Filtersection({
   Category,
   brand,
   pricerange,
+  setBrand,
+  setCategory,
   setPriceRange,
   handleCategoryChange,
   handleBrandChange
@@ -24,7 +26,7 @@ function Filtersection({
       <div className=' flex flex-col gap-2 mt-3'>
         {
           categoryOnlyData?.map((item, index) => {
-            return <div key={index} className='flex gap-2'>
+            return <div key={index} className='flex gap-2'> 
               <input type="checkbox"
                 name={item}
                 checked={Category === item}
@@ -53,22 +55,39 @@ function Filtersection({
         }
       </select>
 
-      <h1 className='mt-5 font-semibold text-xl'>Price Range</h1>
-      <div className=" mt-5">
-        <div className="flex text-sm mt-2 mb-2">
-          Price Range: ${pricerange[0]}-${pricerange[1]}
-        </div>
-        <input
-          type="range"
-          min="0"
-          max="10000"
-          value={pricerange[0]}
-          onChange={(e) => setPriceRange([pricerange[0], Number(e.target.value)])}
-          className="w-full accent-red-500"
-        />
-        <button className='mt-5 cursor-pointer text-white px-3 py-1 font-semibold rounded-md bg-red-500'>Reset Filter
-        </button>
-      </div>
+     <h1 className='mt-5 font-semibold text-xl'>Price Range</h1>
+
+<div className="mt-5">
+
+  {/* Label */}
+  <div className="flex justify-between text-sm mb-2">
+    <span>$0</span>
+    <span>${pricerange[1]}</span>
+  </div>
+
+  {/* SINGLE SLIDER */}
+  <input
+    type="range"
+    min="0"
+    max="5000"
+    step="50"
+    value={pricerange[1]}
+    onChange={(e) =>
+      setPriceRange([0, Number(e.target.value)])
+    }
+    className="w-full accent-red-500 cursor-pointer"
+  />
+
+  {/* RESET BUTTON */}
+  <button
+    onClick={() => {setPriceRange([0, 5000]); setSearch('');setBrand("All");setCategory("All")}}
+    className='mt-5 w-full cursor-pointer text-white px-3 py-2 font-semibold rounded-md bg-red-500 hover:bg-red-600 transition'
+  >
+    Reset Filter
+  </button>
+
+</div>
+
 
     </div>
   )

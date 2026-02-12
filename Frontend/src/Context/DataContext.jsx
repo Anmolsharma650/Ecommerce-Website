@@ -9,7 +9,7 @@ export const DataProvider = ({ children }) => {
   const fetchAllProducts = useCallback(async () => {
     try {
       const res = await axios.get(
-        "https://dummyjson.com/products?limit=100&skip=0"
+        "https://dummyjson.com/products?limit=200&skip=0"
       )
 
       // 🔥 IMPORTANT FIX
