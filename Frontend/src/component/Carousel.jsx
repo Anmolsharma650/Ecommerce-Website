@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import Categry from "../Categry";
+import { Link } from "react-router-dom";
 
 function Carousel() {
   const { data, fetchAllProducts } = getData();
@@ -73,9 +74,11 @@ function Carousel() {
                 <p className="md:w-[500px] line-clamp-3 text-gray-400">
                   {item.description}
                 </p>
+                <Link to={"/products"}>
                 <button className="bg-gradient-to-r from-red-500 to-purple-500 text-white px-3 py-2 rounded-md">
                   Shop Now
                 </button>
+                </Link>
               </div>
 
               <img

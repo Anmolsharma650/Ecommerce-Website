@@ -9,6 +9,7 @@ import MenuIcon from './Pages/MenuIcon'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Footer from './component/Footer'
+import SingleProductPage from './Pages/singleProductPage'
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<SingleProductPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />

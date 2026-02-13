@@ -17,16 +17,16 @@ function Products() {
 
   useEffect(() => {
     fetchAllProducts()
+    window.scrollTo(0,0)
   }, [])
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value)
-
-
+    setPage(1)
   }
   const handleBrandChange = (e) => {
     setBrand(e.target.value)
-
+    setPage(1)
   }
   const pageHandler = (selectedPage) => {
     setPage(selectedPage)
@@ -67,9 +67,9 @@ function Products() {
                     />
                   </div>
                 ) : (
-                 <div className="flex justify-center items-center h-[600px] w-full mt-10">
-  <Lottie animationData={notfound} className="w-[500px]" />
-</div>
+                  <div className="flex justify-center items-center w-full mt-10">
+                    <Lottie animationData={notfound} className="w-[500px]" />
+                  </div>
 
                 )
               }

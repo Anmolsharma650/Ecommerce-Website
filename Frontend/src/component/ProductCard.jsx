@@ -1,7 +1,10 @@
 import React from 'react'
 import { IoCartOutline } from 'react-icons/io5'
+import { useNavigate } from 'react-router-dom'
 
 function ProductCard({ product }) {
+    const navigate = useNavigate()
+
     return (
         <div className='border border-gray-100 rounded-2xl cursor-pointer hover:shadow-2xl transition-all p-3 flex flex-col h-[400px]'>
             
@@ -10,6 +13,7 @@ function ProductCard({ product }) {
                 <img 
                     src={product.thumbnail} 
                     alt="" 
+                    onClick={()=>navigate(`/products/${product.id}`)}
                     className="h-full object-contain transition-transform duration-300 hover:scale-105"
                 />
             </div>
