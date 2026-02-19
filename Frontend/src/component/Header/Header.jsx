@@ -5,13 +5,15 @@ import { useState } from 'react'
 import { IoCartOutline } from 'react-icons/io5'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
 import { CgClose } from 'react-icons/cg'
+import { useCart } from '../../Context/CartContext'
 
 
-function Header({location,getLocation,openDropDown,setOpenDropDown}) {
-  
-  const toggleDropdown=()=>{
+function Header({ location, getLocation, openDropDown, setOpenDropDown }) {
+  const { CartItem } = useCart()
+
+  const toggleDropdown = () => {
     setOpenDropDown(!openDropDown)
-    
+
   }
 
   return (
@@ -31,16 +33,16 @@ function Header({location,getLocation,openDropDown,setOpenDropDown}) {
           </div>
           {
             openDropDown ? <div className='`w-[250px]` h-max flex justify-center flex-col shadow-2xl z-50 bg-white fixed top-16 left-60 border-2 p-5 border-gray-100 rounded-md '>
-              <h1 className=' font-semibold mb-4 text-xl flex items-center gap-2 justify-between'>  Change Location<span onClick={toggleDropdown}><CgClose/> </span></h1>
+              <h1 className=' font-semibold mb-4 text-xl flex items-center gap-2 justify-between'>  Change Location<span onClick={toggleDropdown}><CgClose /> </span></h1>
               <button onClick={getLocation} className='  cursor-pointer text-black px-4 py-1 font-semibold rounded-md bg-red-500'>Detect My Location</button>
-            </div> :null
+            </div> : null
           }
         </div>
         {/*menu*/}
         <div className='flex text-[20px]  items-center gap-7'>
           <ul className='   hidden  md:flex justify-center gap-7 font-semibold '>
             <NavLink to={'/'} className={({ isActive }) => `${isActive ? "border-b-2 translate-all border-red-500 " : 'text-black '} cursor-pointer`} ><li>Home</li></NavLink>
-             <NavLink to={'/products'} className={({ isActive }) => `${isActive ? "border-b-2 translate-all border-red-500 " : 'text-black '} cursor-pointer`} ><li>Produts</li></NavLink>
+            <NavLink to={'/products'} className={({ isActive }) => `${isActive ? "border-b-2 translate-all border-red-500 " : 'text-black '} cursor-pointer`} ><li>Produts</li></NavLink>
             <NavLink to={'/about'} className={({ isActive }) => `${isActive ? "border-b-2 translate-all border-red-500 " : 'text-black '} cursor-pointer`} ><li>About</li></NavLink>
             <NavLink to={'/contact'} className={({ isActive }) => `${isActive ? "border-b-2 translate-all border-red-500 " : 'text-black '} cursor-pointer`} ><li>Contact</li></NavLink>
           </ul>
@@ -57,7 +59,7 @@ function Header({location,getLocation,openDropDown,setOpenDropDown}) {
       bg-red-500 text-white rounded-full
       flex items-center justify-center"
               >
-                0
+              {CartItem.length}
               </span>
             </Link>
 

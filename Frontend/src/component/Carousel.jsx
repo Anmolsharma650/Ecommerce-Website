@@ -45,9 +45,9 @@ function Carousel() {
     arrows: true,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 2000,
-    pauseOnHover:false,
-    speed: 500,
+    autoplaySpeed: 2500,
+    pauseOnHover: false,
+    speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
     accessibility: false,
@@ -63,35 +63,46 @@ function Carousel() {
             key={index}
             className="bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e]"
           >
-            <div className="flex gap-10 justify-center h-[500px] items-center px-4">
-              <div className="space-y-6">
-                <h2 className="text-red-500 text-sm font-semibold">
-                 Choose Your Products And Enjoy .
-                </h2>
-                <h1 className="text-3xl font-semibold uppercase line-clamp-2 md:w-[500px] text-white">
-                  {item.title}
-                </h1>
-                <p className="md:w-[500px] line-clamp-3 text-gray-400">
-                  {item.description}
-                </p>
-                <Link to={"/products"}>
-                <button className="bg-gradient-to-r from-red-500 to-purple-500 text-white px-3 py-2 rounded-md">
-                  Shop Now
-                </button>
-                </Link>
-              </div>
+            <div className="flex flex-col lg:flex-row gap-10 justify-center items-center h-auto lg:h-[500px] px-6 py-12">
 
+              {/* IMAGE - Top on mobile, right on large screen */}
               <img
                 src={item.thumbnail}
                 alt={item.title}
-                className="rounded-full w-[300px] hover:scale-105 transition-all shadow-2xl shadow-red-400"
+                className="rounded-full w-[220px] sm:w-[260px] md:w-[300px] 
+                           hover:scale-105 transition-all duration-300 
+                           shadow-2xl shadow-red-400"
               />
+
+              {/* TEXT SECTION */}
+              <div className="space-y-6 text-center lg:text-left max-w-[600px]">
+                <h2 className="text-red-500 text-sm font-semibold tracking-wide">
+                  Choose Your Products And Enjoy.
+                </h2>
+
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase line-clamp-2 text-white">
+                  {item.title}
+                </h1>
+
+                <p className="text-gray-300 line-clamp-3">
+                  {item.description}
+                </p>
+
+                <Link to={"/products"}>
+                  <button className="bg-gradient-to-r from-red-500 to-purple-500 
+                                     text-white px-5 py-2 rounded-md 
+                                     hover:scale-105 transition-all duration-300">
+                    Shop Now
+                  </button>
+                </Link>
+              </div>
+
             </div>
           </div>
         ))}
       </Slider>
-     <Categry/>
-    
+
+      <Categry />
     </div>
   );
 }
